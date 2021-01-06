@@ -15,6 +15,9 @@
                                 v-model="inventory.name"
                                 required
                             />
+                            <p class="text-error" v-show="$page.errors.name">
+                                {{ $page.errors.name }}
+                            </p>
                         </div>
                         <div class="flex flex-col mb-3">
                             <label for="amount">Amount</label>
@@ -26,6 +29,9 @@
                                 v-model="inventory.amount"
                                 required
                             />
+                            <p class="text-error" v-show="$page.errors.amount">
+                                {{ $page.errors.amount }}
+                            </p>
                         </div>
                         <button class="btn">Update</button>
                     </form>

@@ -1,6 +1,14 @@
 <template>
-    <div :class="`alert ${type}`">
-        <h1>{{ message }}</h1>
+    <div v-show="$page.flash.message">
+        <transition
+            leave-active-class="transition ease-in duration-1000"
+            leave-class="opacity-100"
+            leave-to-class="opacity-0"
+        >
+            <div :class="`alert ${$page.flash.type}`">
+                <h1>{{ $page.flash.message }}</h1>
+            </div>
+        </transition>
     </div>
 </template>
 

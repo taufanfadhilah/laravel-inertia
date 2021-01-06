@@ -6,6 +6,9 @@ use App\Models\Inventory;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
+// Request Validation
+use App\Http\Requests\Inventory\Store;
+use App\Http\Requests\Inventory\Update;
 class InventoryController extends Controller
 {
     /**
@@ -38,7 +41,7 @@ class InventoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Store $request)
     {
         Inventory::create($request->all());
 
@@ -79,7 +82,7 @@ class InventoryController extends Controller
      * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inventory $inventory)
+    public function update(Update $request, Inventory $inventory)
     {
         $inventory->update($request->all());
 

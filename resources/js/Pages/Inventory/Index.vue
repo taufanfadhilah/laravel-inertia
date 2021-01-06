@@ -14,11 +14,7 @@
                         >
                     </div>
                     <hr class="mt-3 mb-5" />
-                    <flash-message
-                        :message="$page.flash.message"
-                        :type="$page.flash.type"
-                        v-show="$page.flash.message"
-                    />
+                    <flash-message />
                     <table class="border-collapse w-full">
                         <thead>
                             <tr>
