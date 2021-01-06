@@ -42,7 +42,10 @@ class InventoryController extends Controller
     {
         Inventory::create($request->all());
 
-        return redirect(route('inventory.index'));
+        return redirect(route('inventory.index'))->with([
+            'message' => 'New Inventory was inserted',
+            'type' => 'success',
+        ]);
     }
 
     /**
@@ -80,7 +83,10 @@ class InventoryController extends Controller
     {
         $inventory->update($request->all());
 
-        return redirect(route('inventory.index'));
+        return redirect(route('inventory.index'))->with([
+            'message' => "{$inventory->name} was updated successfully",
+            'type' => 'warning',
+        ]);
     }
 
     /**
@@ -92,6 +98,10 @@ class InventoryController extends Controller
     public function destroy(Inventory $inventory)
     {
         $inventory->delete();
-        return redirect(route('inventory.index'));
+
+        return redirect(route('inventory.index'))->with([
+            'message' => "{$inventory->name} was deleted",
+            'type' => 'danger',
+        ]);
     }
 }

@@ -14,6 +14,11 @@
                         >
                     </div>
                     <hr class="mt-3 mb-5" />
+                    <flash-message
+                        :message="$page.flash.message"
+                        :type="$page.flash.type"
+                        v-show="$page.flash.message"
+                    />
                     <table class="border-collapse w-full">
                         <thead>
                             <tr>
@@ -34,10 +39,10 @@
                                         {{ ++index }}.
                                     </td>
                                     <td class="border border-grey-200 pl-3">
-                                        {{ inventory.name }}
+                                        {{ inventory.user.name }}
                                     </td>
                                     <td class="border border-grey-200 pl-3">
-                                        {{ inventory.user.name }}
+                                        {{ inventory.name }}
                                     </td>
                                     <td class="border border-grey-200 pl-3">
                                         {{ inventory.amount }}
@@ -83,8 +88,10 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout.vue";
+import FlashMessage from "../../Components/FlashMessage.vue";
+
 export default {
-    components: { AppLayout },
+    components: { AppLayout, FlashMessage },
     props: {
         inventories: {
             type: Array,
