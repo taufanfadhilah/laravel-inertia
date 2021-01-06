@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .alert {
     @apply w-full;
     @apply rounded;
@@ -34,21 +34,25 @@ export default {
     @apply px-3;
     @apply font-semibold;
     @apply my-3;
-}
-.danger {
-    @apply bg-red-600;
-    @apply text-white;
-}
-.warning {
-    @apply bg-yellow-300;
-    @apply text-white;
-}
-.success {
-    @apply bg-green-400;
-    @apply text-white;
-}
-.message {
-    @apply bg-gray-400;
-    @apply text-white;
+
+    &.danger {
+        @apply bg-red-600;
+        @apply text-white;
+    }
+
+    &.warning {
+        @apply bg-yellow-300;
+        @apply text-white;
+    }
+
+    &.success {
+        @apply bg-green-400;
+        @apply text-white;
+    }
+
+    &.message {
+        @apply bg-gray-400;
+        @apply text-white;
+    }
 }
 </style>
