@@ -26,7 +26,7 @@
                             </jet-nav-link>
                             <jet-nav-link
                                 :href="route('inventory.index')"
-                                :active="route().current('inventory.index')"
+                                :active="currentUrl == 'inventory'"
                             >
                                 Inventory
                             </jet-nav-link>
@@ -418,6 +418,11 @@ export default {
             axios.post(route("logout").url()).then(response => {
                 window.location = "/";
             });
+        }
+    },
+    computed: {
+        currentUrl() {
+            return location.pathname.split("/")[1];
         }
     }
 };
