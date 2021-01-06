@@ -26,13 +26,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <template v-if="inventories.length">
+                            <template v-if="inventories.total">
                                 <tr
-                                    v-for="(inventory, index) in inventories"
+                                    v-for="(inventory,
+                                    index) in inventories.data"
                                     :key="inventory.id"
                                 >
                                     <td class="border border-grey-200 pl-3">
-                                        {{ ++index }}.
+                                        {{ inventories.from + index }}.
                                     </td>
                                     <td class="border border-grey-200 pl-3">
                                         {{ inventory.user.name }}
@@ -76,6 +77,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <pagination :links="inventories.links" />
                 </div>
             </div>
         </div>
@@ -84,14 +86,15 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import FlashMessage from "../../Components/FlashMessage.vue";
+import FlashMessage from "@/Components/FlashMessage.vue";
+import Pagination from "@/Components/Pagination.vue";
 
 export default {
-    components: { AppLayout, FlashMessage },
+    components: { AppLayout, FlashMessage, Pagination },
     props: {
         inventories: {
-            type: Array,
-            default: []
+            type: Object,
+            default: {}
         }
     },
     methods: {

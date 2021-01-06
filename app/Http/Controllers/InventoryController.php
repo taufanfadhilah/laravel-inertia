@@ -18,7 +18,7 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        $inventories = Inventory::with('User')->orderBy('created_at', 'desc')->get();
+        $inventories = Inventory::with('User')->orderBy('created_at', 'desc')->paginate(10);
 
         return Inertia::render('Inventory/Index', [
             'inventories' => $inventories
