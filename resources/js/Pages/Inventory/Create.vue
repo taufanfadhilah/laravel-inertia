@@ -13,6 +13,7 @@
                                 id="name"
                                 placeholder="Insert item name here ..."
                                 v-model="inventory.name"
+                                :class="$page.errors.name && 'input-error'"
                                 required
                             />
                             <p class="text-error" v-show="$page.errors.name">
@@ -27,6 +28,7 @@
                                 id="amount"
                                 placeholder="Insert item amount here ..."
                                 v-model="inventory.amount"
+                                :class="$page.errors.amount && 'input-error'"
                                 required
                             />
                             <p class="text-error" v-show="$page.errors.amount">
@@ -88,7 +90,6 @@ label {
 input {
     @apply rounded;
     @apply border;
-    @apply border-gray-300;
     @apply px-3;
     @apply py-2;
 }

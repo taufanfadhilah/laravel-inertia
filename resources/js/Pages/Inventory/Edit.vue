@@ -14,6 +14,7 @@
                                 placeholder="Insert item name here ..."
                                 v-model="inventory.name"
                                 required
+                                :class="$page.errors.name && 'input-error'"
                             />
                             <p class="text-error" v-show="$page.errors.name">
                                 {{ $page.errors.name }}
@@ -28,6 +29,7 @@
                                 placeholder="Insert item amount here ..."
                                 v-model="inventory.amount"
                                 required
+                                :class="$page.errors.amount && 'input-error'"
                             />
                             <p class="text-error" v-show="$page.errors.amount">
                                 {{ $page.errors.amount }}
