@@ -44,11 +44,17 @@
                                     </td>
                                     <td class="border border-grey-200 pl-3">
                                         <div class="flex flex-row">
-                                            <button
+                                            <a
+                                                :href="
+                                                    route(
+                                                        'inventory.edit',
+                                                        inventory.id
+                                                    )
+                                                "
                                                 class="btn bg-orange-400 mr-2"
                                             >
                                                 Edit
-                                            </button>
+                                            </a>
                                             <button
                                                 class="btn bg-red-600"
                                                 @click="onDelete(inventory.id)"

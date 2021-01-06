@@ -64,7 +64,9 @@ class InventoryController extends Controller
      */
     public function edit(Inventory $inventory)
     {
-        //
+        return Inertia::render('Inventory/Edit', [
+            'inventory' => $inventory
+        ]);
     }
 
     /**
@@ -76,7 +78,9 @@ class InventoryController extends Controller
      */
     public function update(Request $request, Inventory $inventory)
     {
-        //
+        $inventory->update($request->all());
+
+        return redirect(route('inventory.index'));
     }
 
     /**
