@@ -15,7 +15,11 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Inventory/Index');
+        $inventories = Inventory::with('User')->orderBy('created_at', 'desc')->get();
+
+        return Inertia::render('Inventory/Index', [
+            'inventories' => $inventories
+        ]);
     }
 
     /**
@@ -25,7 +29,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Inventory/Create');
     }
 
     /**
@@ -36,7 +40,9 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Inventory::create($request->all());
+
+        return redirect(route('inventory.index'));
     }
 
     /**
@@ -81,6 +87,7 @@ class InventoryController extends Controller
      */
     public function destroy(Inventory $inventory)
     {
-        //
+        $inventory->delete();
+        return redirect(route('inventory.index'));
     }
 }
