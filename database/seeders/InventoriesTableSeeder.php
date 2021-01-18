@@ -14,6 +14,6 @@ class InventoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        Inventory::factory()->times(300)->create(); 
+        Inventory::factory()->times(3000)->create(); 
     }
 }
